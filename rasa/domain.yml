@@ -1,0 +1,38 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - overview
+  - choose_exhibition
+  - opening_hour
+  - repeat
+  - compliment
+
+responses:
+  utter_greet:
+  - text: "Hey! What can I help you?"
+
+  utter_overview:
+  - text: "We have an exhibition called \"The Raid\""
+
+  utter_choose_exhibition:
+  - text: "On an autumn day in 859, a dragon appears, as if hovering over the whimsical waves of the Mediterranean Sea. It cuts through the water heading for North Africa. The dragon's head is carved at the front of a magnificent Viking ship from Scandinavia. The captain is the legendary Viking Björn Ironside, joined by his valorous companion Hasting. Ignited by the desire for adventure and riches, the entire fleet of 62 ships sails for Rome."
+
+  utter_opening_hour:
+  - text: "It is open all days in July from 10 to 20 and August from 10 to 17. In December, we open from 10 to 17 except Monday."
+
+  utter_goodbye:
+  - text: "Bye!"
+
+  utter_repeat:
+  - text: "It is open all days in July from 10 to 20 and August from 10 to 17. In December, we open from 10 to 17 except Monday."
+
+  utter_compliment:
+    - text: "You're welcome!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

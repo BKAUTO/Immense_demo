@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  museum:
+    container_name: museum-prod
+    build:
+      context: ./museum-app
+      dockerfile: Dockerfile.prod
+    ports:
+      - '1337:80'
+
+  rasa:
+    image: rasa/rasa:3.0.6-full
+    volumes:
+      - '.:/app'
+      - ./rasa/models:/app/models
+    ports:
+      - '5005:5005'
+    command: run --enable-api --cors "*"
