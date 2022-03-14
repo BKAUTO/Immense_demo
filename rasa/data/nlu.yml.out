@@ -1,0 +1,89 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: overview
+  examples: |
+    - what exhibitions do you have?
+    - what can I do?
+    - overview
+    - what's the most interesting part here?
+    - what can I see here?
+    - what do you provide?
+    - what's the famous?
+    - what can I find?
+
+- intent: choose_exhibition
+  examples: |
+    - I want to know more about the raid
+    - the raid
+    - I choose the raid
+    - talk about the raid?
+
+- intent: opening_hour
+  examples: |
+    - what's the opening hours
+    - when can I see it?
+    
+
+- intent: repeat
+  examples: |
+    - can you repeat that?
+    - what happened on ..?
+    - what did he do ..?
+
+- intent: compliment
+  examples: |
+    - Thank you!
+    - you do a good job
+    - good explain
+    - nice
+    - perfect
+    - clear enough

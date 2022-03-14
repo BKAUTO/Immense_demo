@@ -1,0 +1,21 @@
+version: "3.0"
+
+stories:
+
+- story: talk_museum
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: overview
+  - action: utter_overview
+  - intent: choose_exhibition
+  - action: utter_choose_exhibition
+  - intent: opening_hour
+  - action: utter_opening_hour
+  - intent: repeat
+  - action: utter_repeat
+  - intent: compliment
+  - action: utter_compliment
+  - intent: goodbye
+  - action: utter_goodbye
+
