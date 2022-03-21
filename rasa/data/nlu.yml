@@ -49,30 +49,22 @@ nlu:
     - no way
     - not really
 
-- intent: overview
+- intent: ask_for_recommendation
   examples: |
-    - what exhibitions do you have?
-    - what can I do?
-    - overview
-    - what's the most interesting part here?
-    - what can I see here?
-    - what do you provide?
-    - what's the famous?
-    - what can I find?
+    - can you recommend some good wine?
+    - I need some wine
+    - I will drink wine
+    - we need wine
+    - we need some wine
+    - do you have some recommendation regards wine
 
-- intent: choose_exhibition
+- intent: other_recommendation
   examples: |
-    - I want to know more about the raid
-    - the raid
-    - I choose the raid
-    - talk about the raid?
-
-- intent: opening_hour
-  examples: |
-    - what's the opening hours
-    - when can I see it?
+    - Do you have any other recommendation?
+    - any other recommendation?
+    - I don't like this, is there any other?
+    - no, please another one.
     
-
 - intent: repeat
   examples: |
     - can you repeat that?
@@ -87,3 +79,15 @@ nlu:
     - nice
     - perfect
     - clear enough
+
+- intent: describe_meal
+# TODO: Use form to ensure the correctness
+  examples: |
+    - I will eat [meal]{"entity": "meal", "value": "meal"}
+    - [meal]{"entity": "meal", "value": "meal"}
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
