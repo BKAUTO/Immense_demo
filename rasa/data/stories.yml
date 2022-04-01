@@ -10,11 +10,10 @@ stories:
   - action: utter_ask_meal
   - intent: describe_meal
   - action: utter_describe_meal
-  - action: utter_recommendation
-  - intent: other_recommendation
-  - action: utter_other_recommendation
+  - action: find_matches
   - intent: compliment
   - action: utter_compliment
   - intent: goodbye
+  - action: end_of_conversation
   - action: utter_goodbye
 

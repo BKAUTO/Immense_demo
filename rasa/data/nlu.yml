@@ -57,9 +57,6 @@ nlu:
     - we need wine
     - we need some wine
     - do you have some recommendation regards wine
-
-- intent: other_recommendation
-  examples: |
     - Do you have any other recommendation?
     - any other recommendation?
     - I don't like this, is there any other?
@@ -81,13 +78,269 @@ nlu:
     - clear enough
 
 - intent: describe_meal
-# TODO: Use form to ensure the correctness
   examples: |
-    - I will eat [meal]{"entity": "meal", "value": "meal"}
-    - [meal]{"entity": "meal", "value": "meal"}
+    - I will eat [vegetables](meal)
+    - I will eat [red meat](meal)
+    - I will eat [white meat](meal)
+    - I will eat [fish](meal)
+    - I will eat [rich fish](meal)
+    - I will eat [starches](meal)
+    - I will eat [sweets](meal)
+    - I am having [meat](meal)
+    - I am gonna have [roasted vegetables](meal)
+    - [fish](meal)
 
 - intent: out_of_scope
   examples: |
     - I want to order food
     - What is 2 + 2?
     - Who's the US President?
+
+- synonym: hard cheese
+  examples: |
+    - Asiago
+    - Gruyere
+    - Parmigiano-Reggiano
+    - Manchego
+    - pecorino romano
+    - gorgonzola
+    - cotija
+    - emmental
+    - gouda
+
+- synonym: sweets
+  examples: |
+    - dessert
+    - cake
+    - cookie
+    - custard
+    - candy
+    - doughnuts
+    - ice cream
+    - pastry
+    - pie
+    - pudding
+
+- synonym: cured meat
+  examples: |
+    - sausages
+    - bacon
+    - ham
+    - hot dogs or frankfurters
+    - tinned meat
+    - salami
+    - pâtés
+    - beef jerky
+    - chorizo
+    - pepperoni
+    - corned beef
+
+- synonym: red meat
+  examples: |
+    - beef
+    - veal
+    - mutton
+    - lamb
+    - pork
+    - venison
+    - goat
+    - horse
+    - burgers
+    - mince
+
+- synonym: white meat
+  examples: |
+    - chicken
+    - turkey
+    - duck
+    - goose
+    - pheasant
+    - rabbit
+
+- synonym: rich fish
+  examples: |
+    - roe
+    - Caviar
+    - Ikura
+    - Kazunoko
+    - Lumpfish roe
+    - Masago
+    - Shad roe
+    - Tobiko
+    - Shellfish
+    - Crustaceans
+    - Crabs
+    - Craw
+    - Cray Fish
+    - Lobsters
+    - Shrimps
+    - Prawns
+    - Cockle
+    - Cuttlefish
+    - Clam
+    - Loco
+    - Mussel
+    - Octopus
+    - Oyster
+    - Periwinkle
+    - Scallop (see also bay scallop and sea scallop)
+    - Squid
+    - Conch (Snails)
+    - Nautilus
+    - Sea cucumber
+    - Uni
+
+- synonym: fish
+  examples: |
+    - salmon
+    - tuna
+    - rainbow trout
+    - pacific halibut
+    - mackerel
+    - cod
+    - sardines
+    - herring
+    - branzino
+    - tilapia
+    - hake
+    - sea bream
+    - brill
+    - sea bass
+    - yellowtail
+    - trout
+    - pollock
+    - haddock
+    - turbot
+    - basa
+    - red mullet
+    - perch
+    - walleye
+    - catfish
+    - hailbut
+    - amberjack
+    - dover sole
+    - flounder
+
+- synonym: starches
+  examples: |
+    - potatoes
+    - bread
+    - cereal
+    - rice
+    - grains
+    - pasta
+
+- synonym: soft cheese
+  examples: |
+    - feta
+    - Brie
+    - ricotta
+    - cream cheese
+    - Camembert
+    - Chevre
+    - Roquefort
+    - gorgonzola
+    - cottage cheese
+
+- synonym: vegetables
+  examples: |
+    - artichoke
+    - broccoli
+    - caper
+    - cauliflower
+    - squash blossoms
+    - avocado
+    - bell pepper
+    - breadfruit
+    - broad bean
+    - chayote
+    - chickpea
+    - common bean
+    - green bean
+    - corn
+    - cowpea
+    - cucumber
+    - durian
+    - eggplant
+    - gherkin
+    - husk tomato
+    - jackfruit
+    - lentil
+    - lima bean
+    - loofah
+    - lotus
+    - musk cucumber
+    - okra
+    - olive
+    - pea
+    - peanut
+    - pepper
+    - plantain
+    - pumpkin
+    - snake gourd
+    - soybean
+    - squash
+    - tomatillo
+    - tomato
+    - water chestnut
+    - wax gourd
+    - zucchini
+    - amaranth
+    - arugula
+    - asparagus
+    - bamboo
+    - beet
+    - bok choy
+    - borage
+    - Brussels sprouts
+    - burdock
+    - cabbage
+    - cardoon
+    - celery
+    - chard
+    - chicory
+    - chive
+    - collard
+    - endive
+    - fennel
+    - grape leaves
+    - Indian fig
+    - kale
+    - kohlrabi
+    - lamb’s lettuce
+    - lamb’s quarters
+    - leek
+    - lemongrass
+    - lettuce
+    - lotus
+    - moringa
+    - mustard
+    - Napa cabbage
+    - sorrel
+    - spinach
+    - stinging nettle
+    - Tossa jute
+    - watercress
+    - beet
+    - carrot
+    - cassava
+    - celeriac
+    - Chinese water chestnut
+    - garlic
+    - ginger
+    - horseradish
+    - Jerusalem artichoke
+    - jícama
+    - lotus
+    - onion
+    - potato
+    - sweet potato
+    - parsnip
+    - radish
+    - rutabaga
+    - salsify
+    - shallot
+    - taro
+    - ti
+    - turnip
+    - yam

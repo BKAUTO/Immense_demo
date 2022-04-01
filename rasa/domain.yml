@@ -6,7 +6,6 @@ intents:
   - affirm
   - deny
   - ask_for_recommendation
-  - other_recommendation
   - describe_meal
   - repeat
   - compliment
@@ -19,14 +18,6 @@ responses:
   utter_ask_meal:
   - text: "What meal will you have together with wine? For example, are there vegetables? What kind of meat will you eat?"
 
-  utter_recommendation:
-  # TODO: define a function later to search in a database
-  - text: "Then I will recommend to get the White Table Wine."
-
-  utter_other_recommendation:
-  # TODO: define a function later to search in a database
-  - text: "Chardonnay is also a good choice considerring your meal."
-
   utter_describe_meal:
   - text: "OK I got it."
 
@@ -34,7 +25,7 @@ responses:
   - text: "Bye!"
 
   utter_compliment:
-    - text: "You're welcome!"
+  - text: "You're welcome!"
   
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
@@ -48,6 +39,10 @@ session_config:
 
 entities:
 - meal
+
+actions:
+- find_matches
+- end_of_conversation
 
 # slots:
 #   meal:

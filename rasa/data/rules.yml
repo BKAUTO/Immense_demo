@@ -5,6 +5,7 @@ rules:
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
+  - action: end_of_conversation
   - action: utter_goodbye
 
 - rule: Say hi anytime the user says hi
