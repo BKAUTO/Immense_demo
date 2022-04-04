@@ -29,6 +29,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - see you
 
 - intent: affirm
   examples: |
@@ -71,19 +72,29 @@ nlu:
   examples: |
     - what's the opening hours
     - when can I see it?
-    
 
 - intent: repeat
   examples: |
     - can you repeat that?
     - what happened on ..?
     - what did he do ..?
+    - could you say that again?
+    - could you please repeat?
+    - I didn't understand 
+    - I didn't understand what you said
+    - what did you say?
+    - sorry I didn't get that
+    - I didn't get that
 
 - intent: compliment
   examples: |
     - Thank you!
+    - thanks 
+    - thank you for your help
+    - thanks for your help
     - you do a good job
-    - good explain
+    - thank you for your explanation
+    - good explanation
     - nice
     - perfect
     - clear enough
