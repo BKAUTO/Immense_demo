@@ -1,0 +1,61 @@
+[{
+    "type":"Dry white",
+    "name":["White Table Wine", 
+            "Sauvignon Blanc",
+            "Grüner Veltliner",
+            "Pinot Grigio",
+            "Albariño"]
+},
+{
+    "type":"Sweet white",
+    "name":["Gewürztraminer", 
+            "Müller-Thurgau",
+            "Malvasia",
+            "Moscalo",
+            "Riesling"]
+},
+{
+    "type":"Rich white",
+    "name":["Chardonnay", 
+            "Roussanne",
+            "Marsanne",
+            "Viognier"]
+},
+{
+    "type":"Sparkling",
+    "name":["Sparkling wine", 
+            "Champagne",
+            "Prosecco",
+            "Cava"]
+},
+{
+    "type":"Light red",
+    "name":["St. Laurent", 
+            "Pinot Noir",
+            "Zweigelt",
+            "Gamay"]
+},
+{
+    "type":"Medium red",
+    "name":["Red Table Wine", 
+            "Tempranillo",
+            "Sangiovese",
+            "Zinfandel",
+            "Grenache",
+            "Merlot"]
+},
+{
+    "type":"Bold red",
+    "name":["Cabernet Sauvlgnon", 
+            "Monastrell",
+            "Aglianico",
+            "Malbec",
+            "Syrah"]
+},
+{
+    "type":"Dessert",
+    "name":["Late Harvest", 
+            "Ice Wine",
+            "Sherry",
+            "Port"]
+}]

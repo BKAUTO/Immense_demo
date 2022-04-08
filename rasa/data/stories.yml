@@ -2,20 +2,18 @@ version: "3.0"
 
 stories:
 
-- story: talk_museum
+- story: wine_recommendation
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: overview
-  - action: utter_overview
-  - intent: choose_exhibition
-  - action: utter_choose_exhibition
-  - intent: opening_hour
-  - action: utter_opening_hour
-  - intent: repeat
-  - action: utter_repeat
+  - intent: ask_for_recommendation
+  - action: utter_ask_meal
+  - intent: describe_meal
+  - action: utter_describe_meal
+  - action: find_matches
   - intent: compliment
   - action: utter_compliment
   - intent: goodbye
+  - action: end_of_conversation
   - action: utter_goodbye
 
