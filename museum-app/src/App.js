@@ -3,12 +3,12 @@ import './style.css';
 import React, { Component } from 'react';
 import Video from './Video';
 import MyForm from './MyForm';
+import Recorder from './Recorder';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: "",
       output: "",
       url: "videos/Emma/Emma.mp4",
       round: 0
@@ -31,12 +31,18 @@ class App extends Component {
     this.setState({round : newRound});
   }
 
-  render () {
+  render() {
     return (
       <div className="App">
-        <Video output = {this.state.output} url = {this.state.url} onUrlChange = {this.handleUrlChange} round = {this.state.round} />
-        <MyForm onInputChange = {this.handleInputChange} onOutputChange = {this.handleOutputChange} onUrlChange = {this.handleUrlChange} onRoundChange = {this.handleRoundChange} round = {this.state.round} />
-        {/* <div>{this.state.round}</div> */}
+        <div className="backImage">
+          <div className='title'>
+            <h1>Talk To Emma - Your Wine Expert</h1>
+          </div>
+          <Video output = {this.state.output} url = {this.state.url} onUrlChange = {this.handleUrlChange} round = {this.state.round} />
+          <MyForm onOutputChange = {this.handleOutputChange} onUrlChange = {this.handleUrlChange} onRoundChange = {this.handleRoundChange} round = {this.state.round} />
+          {/* <div>{this.state.round}</div> */}
+          {/* <Recorder /> */}
+        </div>
       </div>
     )
   }

@@ -1,12 +1,64 @@
+body {
+    background-image: url(img/background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 110%;
+    background-color: rgb(171, 238, 243);
+}
+
+.title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Monaco", monospace;
+    color: #35c7d1;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
 .player-wrapper {
-    display: flex;
-    justify-Content: center;
-    align-items: center;
-    height: 100vh;
+    height: 540px;
+    width: 960px;
+    margin: auto;
 }
 
 .form-wrapper {
-    margin-top: -7%;
+    margin-top: 20px;
+}
+
+form button{
+	width: 20px;
+	height: 20px;
+	font-size: 0;
+	background-color: red;
+	border: 0;
+	border-radius: 35px;
+	margin: 18px 18px 18px 18px;
+	outline: none;
+    position:relative;
+    top: 4px;
+}
+
+form .notRec{
+	background-color: darkred;
+}
+
+form .Rec{
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+	}
 }
 
 .form-wrapper input{
@@ -14,14 +66,13 @@
     border-radius: 4px;
     box-sizing: border-box;
     padding: 10px;
-    width: 15%;
 }
 
 .form-wrapper label {
     color: #3d3d3d;
     display: block;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 38px;
     font-weight: 500;
     margin-bottom: 5px;
 }
@@ -32,13 +83,31 @@
     font-family: sans-serif;
     font-size: 14px;
     width: 120px;
-    margin: 20px 20px;
+    margin: 20px 10px;
 }
 
 .form-wrapper .submitButton:hover {background-color: #4aafc9}
 
 .form-wrapper .submitButton:active {
-  background-color: #4aafc9;
-  box-shadow: 0 2px rgb(164, 238, 216);
-  transform: translateY(4px);
+    background-color: #4aafc9;
+    box-shadow: 0 2px rgb(164, 238, 216);
+    transform: translateY(4px);
 }
+
+.form-wrapper .getButton {
+    background-color: #51df70;
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    width: 120px;
+    margin: 0px 0px;
+}
+
+.form-wrapper .getButton:hover {background-color: #26e68c}
+
+.form-wrapper .getButton:active {
+    background-color: #4aafc9;
+    box-shadow: 0 2px rgb(164, 238, 216);
+    transform: translateY(4px);
+}
+
