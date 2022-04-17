@@ -94,20 +94,3 @@ form .Rec{
     transform: translateY(4px);
 }
 
-.form-wrapper .getButton {
-    background-color: #51df70;
-    color: white;
-    font-family: sans-serif;
-    font-size: 14px;
-    width: 120px;
-    margin: 0px 0px;
-}
-
-.form-wrapper .getButton:hover {background-color: #26e68c}
-
-.form-wrapper .getButton:active {
-    background-color: #4aafc9;
-    box-shadow: 0 2px rgb(164, 238, 216);
-    transform: translateY(4px);
-}
-
