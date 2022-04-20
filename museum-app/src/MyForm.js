@@ -16,8 +16,10 @@ function MyForm(props) {
     const [transcriptID, setTranscriptID] = useState("");    
     const [transcriptData, setTranscriptData] = useState("")
     const [transcript, setTranscript] = useState("")
+    const [hasRequestedRasa, setHasRequestedRasa] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [input, setInput] = useState("");
+    const [rasaTimes, setRasaTimes] = useState(0);
 
     useEffect(() => {
       //Declares the recorder object and stores it inside of ref
@@ -28,9 +30,14 @@ function MyForm(props) {
       RasaServices.getRasaReponse(request)
         .then(response => {
             let url = searchVideo(response.data[0]["text"]);
-            props.onOutputChange(response.data[0]["text"]);
+            console.log(response.data[0]["text"])
+            // props.onOutputChange(response.data[0]["text"]);
             props.onUrlChange(url);
-            props.onRoundChange(props.round+1);
+            setTranscriptID("")
+            setTranscriptData("")
+            setTranscript("")
+            setRasaTimes(0)
+            // props.onRoundChange(props.round+1);
         })
         .catch(e => {
             console.log(e);
@@ -60,23 +67,19 @@ function MyForm(props) {
       }
     }
 
-    const handleGetResponse = () => {
-      if (input !== "") {
-        let request = {
-          "sender": "test_user",
-          "message": input
-        }
-        requestRasa(request);
-        setInput("");
-      }
-      else if (transcript !== "") {
-        let request = {
-          "sender": "test_user",
-          "message": transcript
-        }
-        requestRasa(request);
-      }
-    }
+    // const handleGetResponse = () => {
+    //   if (input !== "") {
+    //     let request = {
+    //       "sender": "test_user",
+    //       "message": input
+    //     }
+    //     requestRasa(request);
+    //     setInput("");
+    //   }
+    //   else if (transcript !== "") {
+        
+    //   }
+    // }
 
     // Check the status of the Transcript
     const checkStatusHandler = async () => {
@@ -96,10 +99,23 @@ function MyForm(props) {
     useEffect(() => {
       const interval = setInterval(() => {
         if (transcriptData.status !== "completed" && isLoading) {
+          setHasRequestedRasa(false)
           checkStatusHandler();
-        } else {
+        } else if (transcriptData.status === "completed") {
           setIsLoading(false);
           setTranscript(transcriptData.text);
+          if(!hasRequestedRasa && rasaTimes == 1)
+          {
+            console.log("test")
+            setHasRequestedRasa(true)
+            let request = {
+              "sender": "test_user",
+              "message": transcript
+            }
+            console.log(transcriptData.text)
+            requestRasa(request);
+          }
+          setRasaTimes(rasaTimes+1)
           clearInterval(interval);
         }
       }, 1000)
@@ -156,7 +172,7 @@ function MyForm(props) {
   
     return (
         <div className='form-wrapper'>
-          <button className="getButton" onClick={handleGetResponse}>Play</button>
+          {/* <button className="getButton" onClick={handleGetResponse}>Play</button> */}
           <form onSubmit={handleSubmit}>
               <button type="button" className='notRec' id="recButton" onClick={handleClick}></button>
               <input 
