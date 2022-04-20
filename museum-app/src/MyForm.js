@@ -15,11 +15,8 @@ function MyForm(props) {
     const [isRecording, setIsRecording] = useState(null)
     const [transcriptID, setTranscriptID] = useState("");    
     const [transcriptData, setTranscriptData] = useState("")
-    const [transcript, setTranscript] = useState("")
-    const [hasRequestedRasa, setHasRequestedRasa] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-    const [input, setInput] = useState("");
-    const [rasaTimes, setRasaTimes] = useState(0);
+    const [input, setInput] = useState(""); // content of text input
 
     useEffect(() => {
       //Declares the recorder object and stores it inside of ref
@@ -33,10 +30,6 @@ function MyForm(props) {
             console.log(response.data[0]["text"])
             // props.onOutputChange(response.data[0]["text"]);
             props.onUrlChange(url);
-            setTranscriptID("")
-            setTranscriptData("")
-            setTranscript("")
-            setRasaTimes(0)
             // props.onRoundChange(props.round+1);
         })
         .catch(e => {
@@ -56,7 +49,15 @@ function MyForm(props) {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      if (input === "") {
+      if (input !== "") {
+        let request = {
+          "sender": "test_user",
+          "message": input
+        }
+        requestRasa(request);
+        setInput("");
+      }
+      else {
         SpeechServices.submitTranscriptionHandler(uploadURL)
         .then((res) => {
           setTranscriptID(res.data.id);
@@ -67,20 +68,6 @@ function MyForm(props) {
       }
     }
 
-    // const handleGetResponse = () => {
-    //   if (input !== "") {
-    //     let request = {
-    //       "sender": "test_user",
-    //       "message": input
-    //     }
-    //     requestRasa(request);
-    //     setInput("");
-    //   }
-    //   else if (transcript !== "") {
-        
-    //   }
-    // }
-
     // Check the status of the Transcript
     const checkStatusHandler = async () => {
       setIsLoading(true)
@@ -88,7 +75,7 @@ function MyForm(props) {
         await SpeechServices.checkStatusHandler(transcriptID)
           .then((res) => {
             setTranscriptData(res.data);
-            console.log(transcriptData);
+            // console.log(transcriptData);
           })
       } catch (err) {
         console.error(err)
@@ -103,19 +90,15 @@ function MyForm(props) {
           checkStatusHandler();
         } else if (transcriptData.status === "completed") {
           setIsLoading(false);
-          setTranscript(transcriptData.text);
-          if(!hasRequestedRasa && rasaTimes == 1)
-          {
-            console.log("test")
-            setHasRequestedRasa(true)
-            let request = {
-              "sender": "test_user",
-              "message": transcript
-            }
-            console.log(transcriptData.text)
-            requestRasa(request);
+          console.log(transcriptData.text)
+          let request = {
+            "sender": "test_user",
+            "message": transcriptData.text
           }
-          setRasaTimes(rasaTimes+1)
+          requestRasa(request);
+          setTranscriptData("");
+          setTranscriptID("");
+          console.log(transcriptData.status)
           clearInterval(interval);
         }
       }, 1000)
@@ -172,7 +155,6 @@ function MyForm(props) {
   
     return (
         <div className='form-wrapper'>
-          {/* <button className="getButton" onClick={handleGetResponse}>Play</button> */}
           <form onSubmit={handleSubmit}>
               <button type="button" className='notRec' id="recButton" onClick={handleClick}></button>
               <input 
@@ -184,7 +166,7 @@ function MyForm(props) {
           </form>
           <audio ref={audioPlayer} src={blobURL} controls='controls' />
           {transcriptData.status === "completed" ? (
-            <p>{transcript}</p>
+            <p>{transcriptData.text}</p>
           ) : (
             <p>{transcriptData.status}</p>
           )}
