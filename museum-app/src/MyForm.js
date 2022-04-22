@@ -27,7 +27,8 @@ function MyForm(props) {
       RasaServices.getRasaReponse(request)
         .then(response => {
             let url = searchVideo(response.data[0]["text"]);
-            props.onOutputChange(response.data[0]["text"]);
+            console.log(response.data[0]["text"])
+            // props.onOutputChange(response.data[0]["text"]);
             props.onUrlChange(url);
             // props.onRoundChange(props.round+1);
         })
@@ -85,6 +86,7 @@ function MyForm(props) {
     useEffect(() => {
       const interval = setInterval(() => {
         if (transcriptData.status !== "completed" && isLoading) {
+          setHasRequestedRasa(false)
           checkStatusHandler();
         } else if (transcriptData.status === "completed") {
           setIsLoading(false);

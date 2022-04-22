@@ -9,6 +9,7 @@
 
 from typing import Any, Text, Dict, List
 
+from rasa_sdk.events import SlotSet
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from pymongo import MongoClient
@@ -17,18 +18,17 @@ import os, certifi
 
 username = quote_plus('<username>')
 password = quote_plus('ImmenseTeam19')
-connection ="mongodb+srv://Immense:"+password+"@immense.qwjj6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+connection ="mongodb+srv://Immense:"+password+"@immense.qwjj6.mongodb.net/wine?retryWrites=true&w=majority"
 client = MongoClient(connection, tlsCAFile=certifi.where())
 
 db_wine = client.wine
 wine_name = db_wine.wine_name
 match = db_wine.wine_match
-wines_recommended = set([])
 
-class ActionFindMatches(Action):
+class ActionMatchMeal(Action):
 
     def name(self) -> Text:
-        return "find_matches"
+        return "match_with_meal"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -37,7 +37,7 @@ class ActionFindMatches(Action):
         meal = next(tracker.get_latest_entity_values("meal"), None)
 
         if not meal:
-            msg = "Could you tell me what are you going to eat again? I didn't quite get your idea."
+            msg = "Could you tell me that again? I didn't quite get your idea."
             dispatcher.utter_message(text=msg)
             return []
 
@@ -45,32 +45,33 @@ class ActionFindMatches(Action):
         print(match_got)
 
         if not match_got:
-            msg = "I don't get what will you eat, could you describe it in another way?"
+            msg = "I don't get what you will eat, could you describe it in another way?"
             dispatcher.utter_message(text=msg)
             return []
 
         wines = []
         for matched_wine_type in match_got['matched_wine']:
-            wines += wine_name.find_one({'type': matched_wine_type})['name']
+            searched_wines = wine_name.find({'type': matched_wine_type})
+            for wine in searched_wines:
+                wines.append(wine['name'])
         wines = set(wines)
         print(wines)
-        wines_to_recommend = wines.difference(wines_recommended)
+        wines_to_recommend = wines
         print(wines_to_recommend)
         if len(list(wines_to_recommend)) == 0:
-            msg = "Sorry, there is no more wine I could recommend to you, maybe you could ask someone else in this store."
+            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
             dispatcher.utter_message(text=msg)
             return []
 
         wines_to_recommend = list(wines_to_recommend)
-        recommend_wine = wines_to_recommend[0]
-        if len(list(wines_recommended))==0:
-            msg = "Then I will recommend to get " + recommend_wine
-            dispatcher.utter_message(text=msg)
-            return []
-        else:
-            msg = recommend_wine + " is also a good choice considerring your meal."
-            dispatcher.utter_message(text=msg)
-            return []
+        # if len(list(wines_recommended))==0:
+        msg = "Ok, thank you. I have a few ideas on what would work well for you. We have some wines on offer at the moment. Would you want me to suggest one of those? "
+        dispatcher.utter_message(text=msg)
+        return [SlotSet("wine_selection", wines_to_recommend)]
+        # else:
+        #     msg = recommend_wine + " is also a good choice considerring your meal."
+        #     dispatcher.utter_message(text=msg)
+        #     return []
 
 
 class ActionEndOfConversation(Action):
@@ -84,3 +85,62 @@ class ActionEndOfConversation(Action):
         wines_recommended = set([])
         return []
 
+class ActionOnOffer(Action):
+
+    def name(self) -> Text:
+        return "go_on_offer"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        wine_selection = tracker.get_slot("wine_selection")
+        print(wine_selection)
+        wine_selection = set(wine_selection)
+
+        wines_on_offer = wine_name.find({"condition":"on offer"})
+        wines_on_offer = [wine['name'] for wine in wines_on_offer]
+        wines_on_offer = set(wines_on_offer)
+
+        wine_recommendation = wine_selection.intersection(wines_on_offer)
+        wine_recommendation = list(wine_recommendation)
+
+        if len(wine_recommendation) == 0:
+            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
+            dispatcher.utter_message(text=msg)
+            return []
+        else:
+            msg = "Perfect! Then I would suggest that you go for the " + wine_recommendation[0]
+            dispatcher.utter_message(text=msg)
+            return []
+
+
+class ActionMatchCountry(Action):
+
+    def name(self) -> Text:
+        return "match_with_country"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        country = next(tracker.get_latest_entity_values("country"), None)
+
+        if not country:
+            msg = "Could you tell me that again? I didn't quite get your idea."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        wines = []
+        searched_wines = wine_name.find({"$or":[{'origin': country}, {"production": country}]})
+        for wine in searched_wines:
+            wines.append(wine['name'])
+
+        if len(wines) == 0:
+            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
+            dispatcher.utter_message(text=msg)
+            return []
+        else:
+            msg = "In this case I recommend a " + wines[0]
+            dispatcher.utter_message(text=msg)
+            return []

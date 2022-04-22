@@ -1,61 +1,186 @@
 [{
-    "type":"Dry white",
-    "name":["White Table Wine", 
-            "Sauvignon Blanc",
-            "Grüner Veltliner",
-            "Pinot Grigio",
-            "Albariño"]
+    "name":"Sauvignon Blanc",
+    "type":"Dry white"
 },
 {
-    "type":"Sweet white",
-    "name":["Gewürztraminer", 
-            "Müller-Thurgau",
-            "Malvasia",
-            "Moscalo",
-            "Riesling"]
+    "name":"Grüner Veltliner",
+    "type":"Dry white"
 },
 {
-    "type":"Rich white",
-    "name":["Chardonnay", 
-            "Roussanne",
-            "Marsanne",
-            "Viognier"]
+    "name":"Pinot Grigio",
+    "type":"Dry white"
 },
 {
-    "type":"Sparkling",
-    "name":["Sparkling wine", 
-            "Champagne",
-            "Prosecco",
-            "Cava"]
+    "name":"Albariño",
+    "type":"Dry white"
 },
 {
-    "type":"Light red",
-    "name":["St. Laurent", 
-            "Pinot Noir",
-            "Zweigelt",
-            "Gamay"]
+    "name":"Gewürztraminer",
+    "type":"Sweet white"
 },
 {
+    "name":"Müller-Thurgau",
+    "type":"Sweet white"
+},
+{
+    "name":"Malvasia",
+    "type":"Sweet white"
+},
+{
+    "name":"Moscalo",
+    "type":"Sweet white"
+},
+{
+    "name":"Riesling",
+    "type":"Sweet white"
+},
+{
+    "name":"Chardonnay",
+    "type":"Rich white"
+},
+{
+    "name":"Roussanne",
+    "type":"Rich white"
+},
+{
+    "name":"Marsanne",
+    "type":"Rich white"
+},
+{
+    "name":"Viognier",
+    "type":"Rich white"
+},
+{
+    "name":"Sparkling wine",
+    "type":"Sparkling"
+},
+{
+    "name":"Champagne",
+    "type":"Sparkling"
+},
+{
+    "name":"Prosecco",
+    "type":"Sparkling"
+},
+{
+    "name":"Cava",
+    "type":"Sparkling"
+},
+{
+    "name":"St. Laurent",
+    "type":"Light red"
+},
+{
+    "name":"Pinot Noir",
+    "type":"Light red"
+},
+{
+    "name":"Zweigelt",
+    "type":"Light red"
+},
+{
+    "name":"Gamay",
+    "type":"Light red"
+},
+{
+    "name":"Syrah 2017",
     "type":"Medium red",
-    "name":["Red Table Wine", 
-            "Tempranillo",
-            "Sangiovese",
-            "Zinfandel",
-            "Grenache",
-            "Merlot"]
+    "origin":"Argentina",
+    "condition":"sold out"
 },
 {
-    "type":"Bold red",
-    "name":["Cabernet Sauvlgnon", 
-            "Monastrell",
-            "Aglianico",
-            "Malbec",
-            "Syrah"]
+    "name":"Barossa Ink Shiraz",
+    "type":"Medium red",
+    "origin":"Australia",
+    "condition":"on offer"
 },
 {
-    "type":"Dessert",
-    "name":["Late Harvest", 
-            "Ice Wine",
-            "Sherry",
-            "Port"]
+    "name":"Heideboden Rot 2017",
+    "type":"Medium red",
+    "origin":"Austria",
+    "condition":"on offer"
+},
+{
+    "name":"Corralillo Syrah 2016",
+    "type":"Medium red",
+    "origin":"Chile",
+    "condition":"sold out"
+},
+{
+    "name":"Saint-Émilion Grand Cru",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"on offer"
+},
+{
+    "name":"Schlatter Maltesergarten Spätburgunder 2018",
+    "type":"Medium red",
+    "origin":"Germany",
+    "condition":"sold out"
+},
+{
+    "name":"Merlot (Querce Gobbe)",
+    "type":"Medium red",
+    "origin":"Italy",
+    "condition":"on offer"
+},
+{
+    "name":"Rocksand Shiraz",
+    "type":"Medium red",
+    "origin":"Portugal",
+    "condition":"on offer"
+},
+{
+    "name":"Shiraz-Merlot 2019",
+    "type":"Medium red",
+    "origin":"South Africa",
+    "condition":"on offer"
+},
+{
+    "name":"Taberner Tierra de Cádiz",
+    "type":"Medium red",
+    "origin":"Spain",
+    "condition":"sold out"
+},
+{
+    "name":"Old Vine Zinfandel Lodi",
+    "type":"Medium red",
+    "origin":["United States","America","USA"],
+    "condition":"sold out"
+},
+{
+    "name":"Cabernet Sauvlgnon",
+    "type":"Bold red"
+},
+{
+    "name":"Monastrell",
+    "type":"Bold red"
+},
+{
+    "name":"Aglianico",
+    "type":"Bold red"
+},
+{
+    "name":"Malbec",
+    "type":"Bold red"
+},
+{
+    "name":"Syrah",
+    "type":"Bold red"
+},
+{
+    "name":"Late Harvest",
+    "type":"Dessert"
+},
+{
+    "name":"Ice Wine",
+    "type":"Dessert"
+},
+{
+    "name":"Sherry",
+    "type":"Dessert"
+},
+{
+    "name":"Port",
+    "type":"Dessert"
 }]
