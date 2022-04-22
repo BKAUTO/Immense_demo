@@ -53,8 +53,7 @@
 },
 {
     "meal":"red meat",
-    "matched_wine":["Medium red",
-                    "Bold red"]
+    "matched_wine":["Medium red"]
 },
 {
     "meal":"cured meat",
