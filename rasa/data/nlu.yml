@@ -111,8 +111,6 @@ nlu:
 - intent: ask_on_offer
   examples: |
     - I will go for those on offer
-    - yes
-    - that will be great
 
 - intent: out_of_scope
   examples: |
