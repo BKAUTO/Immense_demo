@@ -10,16 +10,18 @@ intents:
   - repeat
   - compliment
   - out_of_scope
+  - describe_wine_country
+  - ask_on_offer
 
 responses:
   utter_greet:
-  - text: "Hey! What can I help you?"
+  - text: "Hi! How can I help you?"
 
-  utter_ask_meal:
-  - text: "What meal will you have together with wine? For example, are there vegetables? What kind of meat will you eat?"
+  utter_ask_for_recommendation:
+  - text: "Of course! What are you having?"
 
   utter_describe_meal:
-  - text: "OK I got it."
+  - text: "Will it be accompanied by anything else?"
 
   utter_goodbye:
   - text: "Bye!"
@@ -39,17 +41,20 @@ session_config:
 
 entities:
 - meal
+- country
 
 actions:
-- find_matches
+- match_with_meal
 - end_of_conversation
+- go_on_offer
+- match_with_country
 
-# slots:
-#   meal:
-#     type: text
-#     mappings:
-#     - type: from_entity
-#       entity: meal
+slots:
+  wine_selection:
+    type: list
+    mappings:
+    - type: custom
+
 
 # forms:
 #   meal_form:

@@ -1,61 +1,220 @@
 [{
+    "name":"Sauvignon Blanc",
     "type":"Dry white",
-    "name":["White Table Wine", 
-            "Sauvignon Blanc",
-            "Grüner Veltliner",
-            "Pinot Grigio",
-            "Albariño"]
+    "origin":"France",
+    "production_country": ["France","Australia","Chile","Brazil","New Zealand","United States","America","Canada","South Africa","Italy"]
 },
 {
+    "name":"Grüner Veltliner",
+    "type":"Dry white",
+    "origin":"Austria",
+    "production_country": ["Slovakia","Italy","Germany","Hungary","Australia","New Zealand","United States","America","Canada"]
+},
+{
+    "name":"Pinot Grigio",
+    "type":"Dry white",
+    "origin":"France",
+    "production_country": ["France","Argentina","Australia","Austria","Canada","Chile","Czech Republic","Germany","Hungary","Italy","Luxembourg","Moldova","New Zealand","Romania","South Africa","Slovakia","Switzerland","Slovenia","Turkey","Ukraine","United States","America"]
+},
+{
+    "name":"Albariño",
+    "type":"Dry white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Gewürztraminer",
     "type":"Sweet white",
-    "name":["Gewürztraminer", 
-            "Müller-Thurgau",
-            "Malvasia",
-            "Moscalo",
-            "Riesling"]
+    "origin":"France",
+    "production_country": ["France"]
 },
 {
+    "name":"Müller-Thurgau",
+    "type":"Sweet white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Malvasia",
+    "type":"Sweet white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Moscalo",
+    "type":"Sweet white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Riesling",
+    "type":"Sweet white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Chardonnay",
     "type":"Rich white",
-    "name":["Chardonnay", 
-            "Roussanne",
-            "Marsanne",
-            "Viognier"]
+    "origin":"France",
+    "production_country": ["France"]
 },
 {
+    "name":"Roussanne",
+    "type":"Rich white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Marsanne",
+    "type":"Rich white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Viognier",
+    "type":"Rich white",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Sparkling wine",
     "type":"Sparkling",
-    "name":["Sparkling wine", 
-            "Champagne",
-            "Prosecco",
-            "Cava"]
+    "origin":"France",
+    "production_country": ["France"]
 },
 {
+    "name":"Champagne",
+    "type":"Sparkling",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Prosecco",
+    "type":"Sparkling",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Cava",
+    "type":"Sparkling",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"St. Laurent",
     "type":"Light red",
-    "name":["St. Laurent", 
-            "Pinot Noir",
-            "Zweigelt",
-            "Gamay"]
+    "origin":"France",
+    "production_country": ["France"]
 },
 {
+    "name":"Pinot Noir",
+    "type":"Light red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Zweigelt",
+    "type":"Light red",
+    "production_country": ["France"]
+},
+{
+    "name":"Gamay",
+    "type":"Light red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Red Table Wine",
     "type":"Medium red",
-    "name":["Red Table Wine", 
-            "Tempranillo",
-            "Sangiovese",
-            "Zinfandel",
-            "Grenache",
-            "Merlot"]
+    "origin":"France",
+    "condition":"sold out",
+    "production_country": ["France"]
 },
 {
+    "name":"Tempranillo",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"on offer",
+    "production_country": ["France"]
+},
+{
+    "name":"Sangiovese",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"on offer",
+    "production_country": ["France"]
+},
+{
+    "name":"Zinfandel",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"sold out",
+    "production_country": ["France"]
+},
+{
+    "name":"Grenache",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"on offer",
+    "production_country": ["France"]
+},
+{
+    "name":"Merlot",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"sold out",
+    "production_country": ["France"]
+},
+{
+    "name":"Cabernet Sauvlgnon",
     "type":"Bold red",
-    "name":["Cabernet Sauvlgnon", 
-            "Monastrell",
-            "Aglianico",
-            "Malbec",
-            "Syrah"]
+    "origin":"France",
+    "production_country": ["France"]
 },
 {
+    "name":"Monastrell",
+    "type":"Bold red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Aglianico",
+    "type":"Bold red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Malbec",
+    "type":"Bold red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Syrah",
+    "type":"Bold red",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Late Harvest",
     "type":"Dessert",
-    "name":["Late Harvest", 
-            "Ice Wine",
-            "Sherry",
-            "Port"]
+    "production_country": ["France"]
+},
+{
+    "name":"Ice Wine",
+    "type":"Dessert",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Sherry",
+    "type":"Dessert",
+    "origin":"France",
+    "production_country": ["France"]
+},
+{
+    "name":"Port",
+    "type":"Dessert",
+    "origin":"France",
+    "production_country": ["France"]
 }]
