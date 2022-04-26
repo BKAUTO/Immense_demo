@@ -86,7 +86,6 @@ function MyForm(props) {
     useEffect(() => {
       const interval = setInterval(() => {
         if (transcriptData.status !== "completed" && isLoading) {
-          setHasRequestedRasa(false)
           checkStatusHandler();
         } else if (transcriptData.status === "completed") {
           setIsLoading(false);
@@ -152,6 +151,19 @@ function MyForm(props) {
           .catch((err) => console.error(err));
       }
     }, [audioFile])
+
+    useEffect(() => {
+      if(uploadURL) {
+        SpeechServices.submitTranscriptionHandler(uploadURL)
+            .then((res) => {
+            setUploadURL(null)
+            setTranscriptID(res.data.id);
+            console.log(transcriptID);
+            checkStatusHandler()
+            }).catch((err) => console.error(err));
+      }
+    })
+
   
     return (
         <div className='form-wrapper'>
