@@ -125,7 +125,7 @@ class ActionMatchCountry(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         country = next(tracker.get_latest_entity_values("country"), None)
-
+        print(country)
         if not country:
             msg = "Could you tell me that again? I didn't quite get your idea."
             dispatcher.utter_message(text=msg)

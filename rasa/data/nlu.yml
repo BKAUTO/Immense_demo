@@ -62,6 +62,11 @@ nlu:
     - any other recommendation?
     - I don't like this, is there any other?
     - no, please another one.
+    - I cannot find a good wine for my meal
+    - I don't know what wine to buy
+    - I don't know which wine goes well with my food
+    - I don't know which wine works for my meal
+    - I would like some help choosing a wine
     
 - intent: repeat
   examples: |
@@ -107,6 +112,28 @@ nlu:
     - I want a wine in [Denmark](country)
     - I want a wine in [Korea](country)
     - [South Africa](country)
+    - What if a wine in [France](country)
+    - What if a wine in [Germany](country)
+    - What if a wine in [Argentina](country)
+    - I would like a [Chilean](country) wine
+    - I would like a [Germen](country) wine
+    - I would like a [Spanish](country) wine
+    - I would like an [Italian](country) wine
+    - a [Portuguese](country) wine
+    - a [South African](country) wine
+    - a [American](country) wine
+    - a [Austrian](country) wine
+    - [Argentina](country) wine
+    - [Australia](country) wine
+    - [Austria](country) wine
+    - [Chile](country) wine
+    - [France](country) wine
+    - [Germany](country) wine
+    - [Italy](country) wine
+    - [Portugal](country) wine
+    - [South Africa](country) wine
+    - [Spain](country) wine
+    - [America](country) wine
 
 - intent: ask_on_offer
   examples: |
@@ -566,3 +593,47 @@ nlu:
     - Yemen
     - Zambia
     - Zimbabwe
+
+- synonym: France
+  examples: |
+    - French
+
+- synonym: Argentina
+  examples: |
+    - Argentinian
+
+- synonym: Australia
+  examples: |
+    - Australian
+
+- synonym: Austria
+  examples: |
+    - Austrian
+
+- synonym: Chile
+  examples: |
+    - Chilean
+
+- synonym: Germany
+  examples: |
+    - German
+
+- synonym: Italy
+  examples: |
+    - Italian
+
+- synonym: Portugal
+  examples: |
+    - Portuguese
+  
+- synonym: South Africa
+  examples: |
+    - South African
+
+- synonym: Spain
+  examples: |
+    - Spanish
+
+- synonym: America
+  examples: |
+    - American
