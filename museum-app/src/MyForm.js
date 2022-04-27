@@ -2,26 +2,29 @@ import { useState, useRef, useEffect } from "react";
 import RasaServices from "./rasa-services";
 import SpeechServices from "./speech-services";
 import { videos } from './videoList';
-import MicRecorder from "mic-recorder-to-mp3";
 import $ from 'jquery';
 
 function MyForm(props) {
-    // Mic-Recorder-To-MP3
-    const recorder = useRef(null) //Recorder
-    const audioPlayer = useRef(null) //Ref for the HTML Audio Tag
-    const [blobURL, setBlobUrl] = useState(null)
-    const [audioFile, setAudioFile] = useState(null)
-    const [uploadURL, setUploadURL] = useState("");
-    const [isRecording, setIsRecording] = useState(null)
-    const [transcriptID, setTranscriptID] = useState("");    
+    const [messageEl, setMessageEl] = useState("")
+    const [isRecording, setIsRecording] = useState(false)   
     const [transcriptData, setTranscriptData] = useState("")
-    const [isLoading, setIsLoading] = useState(false)
     const [input, setInput] = useState(""); // content of text input
 
+    let recorder;
+    let socket;
+
     useEffect(() => {
-      //Declares the recorder object and stores it inside of ref
-      recorder.current = new MicRecorder({ bitRate: 128 })
-    }, [])
+      const script = document.createElement('script');
+    
+      script.src = "https://www.WebRTC-Experiment.com/RecordRTC.js";
+      script.async = true;
+    
+      document.body.appendChild(script);
+    
+      return () => {
+        document.body.removeChild(script);
+      }
+    }, []);
 
     const requestRasa = (request) => {
       RasaServices.getRasaReponse(request)
@@ -58,117 +61,110 @@ function MyForm(props) {
         setInput("");
       }
       else {
-        SpeechServices.submitTranscriptionHandler(uploadURL)
-        .then((res) => {
-          setTranscriptID(res.data.id);
-          console.log(transcriptID);
-          checkStatusHandler()
-          })
-        .catch((err) => console.error(err));
       }
     }
 
-    // Check the status of the Transcript
-    const checkStatusHandler = async () => {
-      setIsLoading(true)
-      try {
-        await SpeechServices.checkStatusHandler(transcriptID)
-          .then((res) => {
-            setTranscriptData(res.data);
-            // console.log(transcriptData);
-          })
-      } catch (err) {
-        console.error(err)
-      }
-    }
-
-    // Periodically check the status of the Transcript
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (transcriptData.status !== "completed" && isLoading) {
-          checkStatusHandler();
-        } else if (transcriptData.status === "completed") {
-          setIsLoading(false);
-          console.log(transcriptData.text)
-          let request = {
-            "sender": "test_user",
-            "message": transcriptData.text
-          }
-          requestRasa(request);
-          setTranscriptData("");
-          setTranscriptID("");
-          console.log(transcriptData.status)
-          clearInterval(interval);
+    const stream = async () =>{
+      if (isRecording) { 
+        if (socket) {
+          socket.send(JSON.stringify({terminate_session: true}));
+          socket.close();
+          socket = null;
         }
-      }, 1000)
-      return () => clearInterval(interval)
-    },)
-
-    const startRecording = () => {
-      // Check if recording isn't blocked by browser
-      recorder.current.start().then(() => {
-        setIsRecording(true)
-      })
-    }
-
-    const stopRecording = () => {
-      recorder.current
-        .stop()
-        .getMp3()
-        .then(([buffer, blob]) => {
-          const file = new File(buffer, "audio.mp3", {
-            type: blob.type,
-            lastModified: Date.now(),
-          })
-          const newBlobUrl = URL.createObjectURL(blob)
-          setBlobUrl(newBlobUrl)
-          setIsRecording(false)
-          setAudioFile(file)
-        })
-        .catch((e) => console.log(e))
-    }
-
-    const handleClick = () => {
-      if($('#recButton').hasClass('notRec')){
+    
+        if (recorder) {
+          recorder.pauseRecording();
+          recorder = null;
+        }
+      } else {
+        const response = await fetch('http://localhost:8000'); // get temp session token from server.js (backend)
+        const data = await response.json();
+    
+        if(data.error){
+          alert(data.error)
+        }
+        
+        const { token } = data;
+        console.log(data)
+        // establish wss with AssemblyAI (AAI) at 16000 sample rate
+        socket = await new WebSocket(`wss://api.assemblyai.com/v2/realtime/ws?sample_rate=16000&token=${token}`);
+    
+        // handle incoming messages to display transcription to the DOM
+        const texts = {};
+        socket.onmessage = (message) => {
+          let msg = '';
+          const res = JSON.parse(message.data);
+          texts[res.audio_start] = res.text;
+          const keys = Object.keys(texts);
+          keys.sort((a, b) => a - b);
+          for (const key of keys) {
+            if (texts[key]) {
+              msg += ` ${texts[key]}`;
+            }
+          }
+          setMessageEl(msg);
+        };
+    
+        socket.onerror = (event) => {
+          console.error(event);
+          socket.close();
+        }
+        
+        socket.onclose = event => {
+          console.log(event);
+          socket = null;
+        }
+    
+        socket.onopen = () => {
+          // once socket is open, begin recording
+          navigator.mediaDevices.getUserMedia({ audio: true })
+            .then((stream) => {
+              recorder = new window.RecordRTC(stream, {
+                type: 'audio',
+                mimeType: 'audio/webm;codecs=pcm', // endpoint requires 16bit PCM audio
+                recorderType: window.StereoAudioRecorder,
+                timeSlice: 250, // set 250 ms intervals of data that sends to AAI
+                desiredSampRate: 16000,
+                numberOfAudioChannels: 1, // real-time requires only one channel
+                bufferSize: 4096,
+                audioBitsPerSecond: 128000,
+                ondataavailable: (blob) => {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    const base64data = reader.result;
+    
+                    // audio data must be sent as a base64 encoded string
+                    if (socket) {
+                      socket.send(JSON.stringify({ audio_data: base64data.split('base64,')[1] }));
+                    }
+                  };
+                  reader.readAsDataURL(blob);
+                },
+              });
+    
+              recorder.startRecording();
+            })
+            .catch((err) => console.error(err));
+        };
+      }
+    
+      isRecording = !isRecording;
+      if(isRecording){
         $('#recButton').removeClass("notRec");
         $('#recButton').addClass("Rec");
-        startRecording();
       }
       else{
         $('#recButton').removeClass("Rec");
         $('#recButton').addClass("notRec");
-        stopRecording();
+        setMessageEl("");
       }
     }
-
-    // Upload the Audio File and retrieve the Upload URL
-    useEffect(() => {
-      if (audioFile) {
-        SpeechServices.submitAudio(audioFile)
-          .then((res) => {
-            setUploadURL(res.data.upload_url);
-          })
-          .catch((err) => console.error(err));
-      }
-    }, [audioFile])
-
-    useEffect(() => {
-      if(uploadURL) {
-        SpeechServices.submitTranscriptionHandler(uploadURL)
-            .then((res) => {
-            setUploadURL(null)
-            setTranscriptID(res.data.id);
-            console.log(transcriptID);
-            checkStatusHandler()
-            }).catch((err) => console.error(err));
-      }
-    })
 
   
     return (
         <div className='form-wrapper'>
           <form onSubmit={handleSubmit}>
-              <button type="button" className='notRec' id="recButton" onClick={handleClick}></button>
+              <button type="button" className='notRec' id="recButton" onClick={stream}></button>
               <input 
                   type="text" 
                   value={input}
@@ -176,13 +172,15 @@ function MyForm(props) {
               />
               <input type="submit" className="submitButton" value="Send"/>
           </form>
-          <audio ref={audioPlayer} src={blobURL} controls='controls' />
+          <p>{messageEl}</p>
+          {/* <audio ref={audioPlayer} src={blobURL} controls='controls' /> */}
           {transcriptData.status === "completed" ? (
             <p>{transcriptData.text}</p>
           ) : (
             <p>{transcriptData.status}</p>
           )}
         </div>
+        
     )
   }
 
