@@ -1,33 +1,76 @@
-body {
+/* body {
     background-image: url(img/background.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100% 110%;
     background-color: rgb(171, 238, 243);
+} */
+
+.App {
+    display: grid;
+
+    /* Set horizontal alignment of items in, case they have a different width. */
+    /* justify-items: start | end | center | stretch (default); */
+    justify-items: start;
+
+    /* Set vertical alignment of items, in case they have a different height. */
+    /* align-items: start | end | center | stretch (default); */
+    align-items: start;
+}
+  
+.App > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 
-.title {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Monaco", monospace;
-    color: #35c7d1;
-    margin-top: 40px;
-    margin-bottom: 40px;
+.hint-text {
+    position: relative;
+    top: 80%;
+    left: 9%;
+    font-size: 40px;
+    font-weight : bold;
+    color: #E8E8E8;
 }
-
+  
 .player-wrapper {
-    height: 540px;
-    width: 960px;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
 }
 
 .form-wrapper {
-    margin-top: 20px;
+    position: relative;
+    top: 88%;
+    left: 90%;
+    z-index: 10;
 }
 
-form button{
-	width: 20px;
-	height: 20px;
+.helper-wrapper {
+    position: relative;
+    top: 88%;
+    left: 0%;
+}
+
+.helper-wrapper .helper-button {
+    background-color: rgba(255,255,255,0.2);
+    border-color: #E8E8E8;
+    color: #E8E8E8;
+    font-size: 24px;
+    font-weight : bold;
+    border-radius: 50px;
+    margin-left: 100px;
+    width: 600px;
+    height: 60px;
+}
+
+#helper2 {
+    width: 400px;
+}
+
+.form-wrapper button{
+	width: 40px;
+	height: 40px;
 	font-size: 0;
 	background-color: red;
 	border: 0;
@@ -38,11 +81,11 @@ form button{
     top: 4px;
 }
 
-form .notRec{
+.form-wrapper .notRec{
 	background-color: darkred;
 }
 
-form .Rec{
+.form-wrapper .Rec{
 	animation-name: pulse;
 	animation-duration: 1.5s;
 	animation-iteration-count: infinite;

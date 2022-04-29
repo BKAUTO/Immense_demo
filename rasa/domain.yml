@@ -15,25 +15,25 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hi! How can I help you?"
+  - text: "hi"
 
   utter_ask_for_recommendation:
-  - text: "Of course! What are you having?"
+  - text: "ask_meal"
 
   utter_describe_meal:
   - text: "Will it be accompanied by anything else?"
 
   utter_goodbye:
-  - text: "Bye!"
+  - text: "bye"
 
   utter_compliment:
-  - text: "You're welcome!"
+  - text: "no_thanks"
   
   utter_out_of_scope:
-  - text: Sorry, I can't handle that request.
+  - text: "out_of_scope"
 
   utter_please_rephrase:
-  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: "not_understand"
 
 session_config:
   session_expiration_time: 60

@@ -6,28 +6,113 @@ const videos = [
   },
   {
     id: 1,
-    content: "Hi! My name is Emma. I will be your guide today.",
-    url:'videos/Emma/Emma.mp4'
+    content: "Hello.",
+    url:'videos/Ryan/Ryan.mp4'
   },
   {
     id: 2,
-    content: "Hey! What can I help you?",
-    url:'videos/Emma/hi.mp4'
+    content: "hi",
+    url:'videos/Ryan/hi.mp4'
   },
   {
     id: 3,
-    content: "We have an exhibition called \"The Raid\"",
-    url:'videos/Emma/exhibition.mp4'
+    content: "ask_meal",
+    url:'videos/Ryan/ask_meal.mp4'
   },
   {
     id: 4,
-    content: "It is open all days in July from 10 to 20 and August from 10 to 17. In December, we open from 10 to 17 except Monday.",
-    url:'videos/Emma/OpenHour.mp4'
+    content: "ask_on_offer",
+    url:'videos/Ryan/ask_on_offer.mp4'
   },
   {
     id: 5,
-    content: "On an autumn day in 859, a dragon appears, as if hovering over the whimsical waves of the Mediterranean Sea. It cuts through the water heading for North Africa. The dragon's head is carved at the front of a magnificent Viking ship from Scandinavia. The captain is the legendary Viking Björn Ironside, joined by his valorous companion Hasting. Ignited by the desire for adventure and riches, the entire fleet of 62 ships sails for Rome.",
-    url:'videos/Emma/IntroduceRaid.mp4'
+    content: "bye",
+    url:'videos/Ryan/bye.mp4'
+  },
+  {
+    id: 6,
+    content: "country_America",
+    url:'videos/Ryan/country_America.mp4'
+  },
+  {
+    id: 7,
+    content: "country_Argentina",
+    url:'videos/Ryan/country_Argentina.mp4'
+  },
+  {
+    id: 8,
+    content: "country_Australia",
+    url:'videos/Ryan/country_Australia.mp4'
+  },
+  {
+    id: 9,
+    content: "country_Austria",
+    url:'videos/Ryan/country_Austria.mp4'
+  },
+  {
+    id: 10,
+    content: "country_Chile",
+    url:'videos/Ryan/country_Austria.mp4'
+  },
+  {
+    id: 11,
+    content: "country_France",
+    url:'videos/Ryan/country_France.mp4'
+  },
+  {
+    id: 12,
+    content: "country_Germany",
+    url:'videos/Ryan/country_Germany.mp4'
+  },
+  {
+    id: 13,
+    content: "country_Italy",
+    url:'videos/Ryan/country_Italy.mp4'
+  },
+  {
+    id: 14,
+    content: "country_Portugal",
+    url:'videos/Ryan/country_Portugal.mp4'
+  },
+  {
+    id: 15,
+    content: "country_South_Africa",
+    url:'videos/Ryan/country_South_Africa.mp4'
+  },
+  {
+    id: 16,
+    content: "country_Spain",
+    url:'videos/Ryan/country_Spain.mp4'
+  },
+  {
+    id: 17,
+    content: "meal_France",
+    url:'videos/Ryan/meal_France.mp4'
+  },
+  {
+    id: 18,
+    content: "no_match_meal",
+    url:'videos/Ryan/no_match_meal.mp4'
+  },
+  {
+    id: 19,
+    content: "no_recommend",
+    url:'videos/Ryan/no_recommend.mp4'
+  },
+  {
+    id: 20,
+    content: "no_thanks",
+    url:'videos/Ryan/no_thanks.mp4'
+  },
+  {
+    id: 21,
+    content: "not_understand",
+    url:'videos/Ryan/not_understand.mp4'
+  },
+  {
+    id: 22,
+    content: "out_of_scope",
+    url:'videos/Ryan/out_of_scope.mp4'
   }
 ];
 

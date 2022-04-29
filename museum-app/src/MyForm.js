@@ -27,8 +27,7 @@ function MyForm(props) {
       RasaServices.getRasaReponse(request)
         .then(response => {
             let url = searchVideo(response.data[0]["text"]);
-            console.log(response.data[0]["text"])
-            // props.onOutputChange(response.data[0]["text"]);
+            props.onOutputChange(response.data[0]["text"]);
             props.onUrlChange(url);
             // props.onRoundChange(props.round+1);
         })
@@ -57,15 +56,6 @@ function MyForm(props) {
         requestRasa(request);
         setInput("");
       }
-      else {
-        SpeechServices.submitTranscriptionHandler(uploadURL)
-        .then((res) => {
-          setTranscriptID(res.data.id);
-          console.log(transcriptID);
-          checkStatusHandler()
-          })
-        .catch((err) => console.error(err));
-      }
     }
 
     // Check the status of the Transcript
@@ -75,7 +65,6 @@ function MyForm(props) {
         await SpeechServices.checkStatusHandler(transcriptID)
           .then((res) => {
             setTranscriptData(res.data);
-            // console.log(transcriptData);
           })
       } catch (err) {
         console.error(err)
@@ -86,7 +75,6 @@ function MyForm(props) {
     useEffect(() => {
       const interval = setInterval(() => {
         if (transcriptData.status !== "completed" && isLoading) {
-          setHasRequestedRasa(false)
           checkStatusHandler();
         } else if (transcriptData.status === "completed") {
           setIsLoading(false);
@@ -98,7 +86,6 @@ function MyForm(props) {
           requestRasa(request);
           setTranscriptData("");
           setTranscriptID("");
-          console.log(transcriptData.status)
           clearInterval(interval);
         }
       }, 1000)
@@ -152,25 +139,37 @@ function MyForm(props) {
           .catch((err) => console.error(err));
       }
     }, [audioFile])
+
+    useEffect(() => {
+      if (uploadURL) {
+        SpeechServices.submitTranscriptionHandler(uploadURL)
+        .then((res) => {
+          setTranscriptID(res.data.id);
+          checkStatusHandler()
+        })
+        .catch((err) => console.error(err));
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [uploadURL])
   
     return (
-        <div className='form-wrapper'>
-          <form onSubmit={handleSubmit}>
-              <button type="button" className='notRec' id="recButton" onClick={handleClick}></button>
-              <input 
-                  type="text" 
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-              />
-              <input type="submit" className="submitButton" value="Send"/>
-          </form>
-          <audio ref={audioPlayer} src={blobURL} controls='controls' />
-          {transcriptData.status === "completed" ? (
-            <p>{transcriptData.text}</p>
-          ) : (
-            <p>{transcriptData.status}</p>
-          )}
-        </div>
+          <div className='form-wrapper'>
+            <form onSubmit={handleSubmit}>
+                <button type="button" className='notRec' id="recButton" onClick={handleClick}></button>
+                {/* <input 
+                    type="text" 
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                />
+                <input type="submit" className="submitButton" value="Send"/> */}
+            </form>
+            <audio ref={audioPlayer} src={blobURL} />
+            {/* {transcriptData.status === "completed" ? (
+              <p>{transcriptData.text}</p>
+            ) : (
+              <p>{transcriptData.status}</p>
+            )} */}
+          </div>
     )
   }
 

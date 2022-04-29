@@ -37,7 +37,7 @@ class ActionMatchMeal(Action):
         meal = next(tracker.get_latest_entity_values("meal"), None)
 
         if not meal:
-            msg = "Could you tell me that again? I didn't quite get your idea."
+            msg = "no_match_meal"
             dispatcher.utter_message(text=msg)
             return []
 
@@ -45,7 +45,7 @@ class ActionMatchMeal(Action):
         print(match_got)
 
         if not match_got:
-            msg = "I don't get what you will eat, could you describe it in another way?"
+            msg = "no_match_meal"
             dispatcher.utter_message(text=msg)
             return []
 
@@ -59,13 +59,13 @@ class ActionMatchMeal(Action):
         wines_to_recommend = wines
         print(wines_to_recommend)
         if len(list(wines_to_recommend)) == 0:
-            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
+            msg = "no_recommend"
             dispatcher.utter_message(text=msg)
             return []
 
         wines_to_recommend = list(wines_to_recommend)
         # if len(list(wines_recommended))==0:
-        msg = "Ok, thank you. I have a few ideas on what would work well for you. We have some wines on offer at the moment. Would you want me to suggest one of those? "
+        msg = "ask_on_offer"
         dispatcher.utter_message(text=msg)
         return [SlotSet("wine_selection", wines_to_recommend)]
         # else:
@@ -106,11 +106,11 @@ class ActionOnOffer(Action):
         wine_recommendation = list(wine_recommendation)
 
         if len(wine_recommendation) == 0:
-            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
+            msg = "no_recommend"
             dispatcher.utter_message(text=msg)
             return []
         else:
-            msg = "Perfect! Then I would suggest that you go for the " + wine_recommendation[0]
+            msg = "meal_France"
             dispatcher.utter_message(text=msg)
             return []
 
@@ -127,7 +127,7 @@ class ActionMatchCountry(Action):
         country = next(tracker.get_latest_entity_values("country"), None)
         print(country)
         if not country:
-            msg = "Could you tell me that again? I didn't quite get your idea."
+            msg = "not_understand"
             dispatcher.utter_message(text=msg)
             return []
 
@@ -137,10 +137,10 @@ class ActionMatchCountry(Action):
             wines.append(wine['name'])
 
         if len(wines) == 0:
-            msg = "Sorry, there is no wine I could recommend to you, maybe you could ask someone else in this store."
+            msg = "no_recommend"
             dispatcher.utter_message(text=msg)
             return []
         else:
-            msg = "In this case I recommend a " + wines[0]
+            msg = "country_" + country
             dispatcher.utter_message(text=msg)
             return []

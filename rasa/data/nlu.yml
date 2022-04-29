@@ -103,6 +103,7 @@ nlu:
     - I am gonna have [roasted vegetables](meal)
     - [Fish](meal)
     - [potatoes](meal)
+    - [beef](meal)
 
 - intent: describe_wine_country
   examples: |
