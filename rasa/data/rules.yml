@@ -5,8 +5,12 @@ rules:
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
-  - action: end_of_conversation
   - action: utter_goodbye
+
+- rule: Say nothanks anytime the user says compliment
+  steps:
+  - intent: compliment
+  - action: utter_compliment
 
 - rule: Say hi anytime the user says hi
   steps:
