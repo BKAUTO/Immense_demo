@@ -31,57 +31,57 @@ const videos = [
   },
   {
     id: 6,
-    content: "country_America",
+    content: "country_america",
     url:'videos/Ryan/country_America.mp4'
   },
   {
     id: 7,
-    content: "country_Argentina",
+    content: "country_argentina",
     url:'videos/Ryan/country_Argentina.mp4'
   },
   {
     id: 8,
-    content: "country_Australia",
+    content: "country_australia",
     url:'videos/Ryan/country_Australia.mp4'
   },
   {
     id: 9,
-    content: "country_Austria",
+    content: "country_austria",
     url:'videos/Ryan/country_Austria.mp4'
   },
   {
     id: 10,
-    content: "country_Chile",
-    url:'videos/Ryan/country_Austria.mp4'
+    content: "country_chile",
+    url:'videos/Ryan/country_Chile.mp4'
   },
   {
     id: 11,
-    content: "country_France",
+    content: "country_france",
     url:'videos/Ryan/country_France.mp4'
   },
   {
     id: 12,
-    content: "country_Germany",
+    content: "country_germany",
     url:'videos/Ryan/country_Germany.mp4'
   },
   {
     id: 13,
-    content: "country_Italy",
+    content: "country_italy",
     url:'videos/Ryan/country_Italy.mp4'
   },
   {
     id: 14,
-    content: "country_Portugal",
+    content: "country_portugal",
     url:'videos/Ryan/country_Portugal.mp4'
   },
   {
     id: 15,
-    content: "country_South_Africa",
+    content: "country_south africa",
     url:'videos/Ryan/country_South_Africa.mp4'
   },
   {
     id: 16,
-    content: "country_Spain",
+    content: "country_spain",
     url:'videos/Ryan/country_Spain.mp4'
   },
   {
