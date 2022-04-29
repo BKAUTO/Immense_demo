@@ -136,11 +136,11 @@ class ActionMatchCountry(Action):
         for wine in searched_wines:
             wines.append(wine['name'])
 
-        if len(wines) == 0:
-            msg = "no_recommend"
-            dispatcher.utter_message(text=msg)
-            return []
-        else:
-            msg = "country_" + country
-            dispatcher.utter_message(text=msg)
-            return []
+        # if len(wines) == 0:
+        #     msg = "no_recommend"
+        #     dispatcher.utter_message(text=msg)
+        #     return []
+        # else:
+        msg = "country_" + country.lower()
+        dispatcher.utter_message(text=msg)
+        return []

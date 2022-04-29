@@ -38,6 +38,8 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yes, please
+    - yes please
 
 - intent: deny
   examples: |
@@ -100,6 +102,7 @@ nlu:
     - I will eat [starches](meal)
     - I will eat [sweets](meal)
     - I am having [meat](meal)
+    - I am having [beef](meal)
     - I am gonna have [roasted vegetables](meal)
     - [Fish](meal)
     - [potatoes](meal)
