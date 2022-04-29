@@ -135,6 +135,7 @@ class ActionMatchCountry(Action):
         searched_wines = wine_name.find({"$or":[{'origin': country}, {"production": country}]})
         for wine in searched_wines:
             wines.append(wine['name'])
+            print(wines)
 
         # if len(wines) == 0:
         #     msg = "no_recommend"
