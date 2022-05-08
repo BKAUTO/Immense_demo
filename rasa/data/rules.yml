@@ -27,6 +27,26 @@ rules:
   - intent: nlu_fallback
   - action: utter_please_rephrase
 
+- rule: Pitch_step 1
+  steps:
+  - intent: ask_for_recommendation
+  - action: utter_ask_for_recommendation
+
+- rule: Pitch_step 2
+  steps:
+  - intent: describe_meal
+  - action: match_with_meal
+
+- rule: Pitch_step 3
+  steps:
+  - intent: ask_on_offer
+  - action: go_on_offer
+
+
+- rule: Pitch_step 4
+  steps:
+  - intent: describe_wine_country
+  - action: match_with_country
 # - rule: Activate form
 #   steps:
 #   - intent: ask_for_recommendation
