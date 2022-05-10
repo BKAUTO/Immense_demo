@@ -16,6 +16,7 @@
     /* Set vertical alignment of items, in case they have a different height. */
     /* align-items: start | end | center | stretch (default); */
     align-items: start;
+
 }
   
 .App > * {
@@ -30,6 +31,16 @@
     font-size: 40px;
     font-weight : bold;
     color: #E8E8E8;
+}
+
+.subtitle{
+    position: relative;
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
 }
   
 .player-wrapper {

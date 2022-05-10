@@ -2,7 +2,7 @@ const videos = [
   {
     id: 0,
     content: "",
-    url:'videos/default.mp4'
+    url:'videos/Ryan/no_recommend.mp4'
   },
   {
     id: 1,

@@ -1,6 +1,32 @@
 version: '3.7'
 
+networks:
+  rasa:
+
 services:
+  speech-api:
+    image: speech-api
+    ports:
+      - '8000:8000'
+
+  action-service:
+    image: rasa-action
+    container_name: action-server
+    volumes:
+     - ./rasa/actions:/app/actions
+    networks:
+      - rasa
+
+  rasa:
+    image: rasa/rasa:3.0.6-full
+    volumes:
+      - './rasa:/app'
+      - ./rasa/models:/app/models
+    networks:
+      - rasa
+    ports:
+      - '5005:5005'
+    command: run --enable-api --cors "*"
 
   museum:
     container_name: museum-prod
@@ -9,12 +35,3 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - '1337:80'
-
-  rasa:
-    image: rasa/rasa:3.0.6-full
-    volumes:
-      - '.:/app'
-      - ./rasa/models:/app/models
-    ports:
-      - '5005:5005'
-    command: run --enable-api --cors "*"
