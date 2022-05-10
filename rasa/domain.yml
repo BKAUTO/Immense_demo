@@ -5,34 +5,58 @@ intents:
   - goodbye
   - affirm
   - deny
-  - overview
-  - choose_exhibition
-  - opening_hour
+  - ask_for_recommendation
+  - describe_meal
   - repeat
   - compliment
+  - out_of_scope
+  - describe_wine_country
+  - ask_on_offer
 
 responses:
   utter_greet:
-  - text: "Hey! What can I help you?"
+  - text: "hi"
 
-  utter_overview:
-  - text: "We have an exhibition called \"The Raid\""
+  utter_ask_for_recommendation:
+  - text: "ask_meal"
 
-  utter_choose_exhibition:
-  - text: "On an autumn day in 859, a dragon appears, as if hovering over the whimsical waves of the Mediterranean Sea. It cuts through the water heading for North Africa. The dragon's head is carved at the front of a magnificent Viking ship from Scandinavia. The captain is the legendary Viking Björn Ironside, joined by his valorous companion Hasting. Ignited by the desire for adventure and riches, the entire fleet of 62 ships sails for Rome."
-
-  utter_opening_hour:
-  - text: "It is open all days in July from 10 to 20 and August from 10 to 17. In December, we open from 10 to 17 except Monday."
+  utter_describe_meal:
+  - text: "Will it be accompanied by anything else?"
 
   utter_goodbye:
-  - text: "Bye!"
-
-  utter_repeat:
-  - text: "It is open all days in July from 10 to 20 and August from 10 to 17. In December, we open from 10 to 17 except Monday."
+  - text: "bye"
 
   utter_compliment:
-    - text: "You're welcome!"
+  - text: "no_thanks"
+  
+  utter_out_of_scope:
+  - text: "out_of_scope"
+
+  utter_please_rephrase:
+  - text: "not_understand"
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+entities:
+- meal
+- country
+
+actions:
+- match_with_meal
+- end_of_conversation
+- go_on_offer
+- match_with_country
+
+slots:
+  wine_selection:
+    type: list
+    mappings:
+    - type: custom
+
+
+# forms:
+#   meal_form:
+#     required_slots:
+#         - meal

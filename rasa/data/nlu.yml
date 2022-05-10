@@ -39,6 +39,8 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yes, please
+    - yes please
 
 - intent: deny
   examples: |
@@ -50,29 +52,25 @@ nlu:
     - no way
     - not really
 
-- intent: overview
+- intent: ask_for_recommendation
   examples: |
-    - what exhibitions do you have?
-    - what can I do?
-    - overview
-    - what's the most interesting part here?
-    - what can I see here?
-    - what do you provide?
-    - what's the famous?
-    - what can I find?
-
-- intent: choose_exhibition
-  examples: |
-    - I want to know more about the raid
-    - the raid
-    - I choose the raid
-    - talk about the raid?
-
-- intent: opening_hour
-  examples: |
-    - what's the opening hours
-    - when can I see it?
-
+    - can you recommend some good wine?
+    - I need some wine
+    - I need some wine for my dinner tonight
+    - I will drink wine
+    - we need wine
+    - we need some wine
+    - do you have some recommendation regards wine
+    - Do you have any other recommendation?
+    - any other recommendation?
+    - I don't like this, is there any other?
+    - no, please another one.
+    - I cannot find a good wine for my meal
+    - I don't know what wine to buy
+    - I don't know which wine goes well with my food
+    - I don't know which wine works for my meal
+    - I would like some help choosing a wine
+    
 - intent: repeat
   examples: |
     - can you repeat that?
@@ -98,3 +96,560 @@ nlu:
     - nice
     - perfect
     - clear enough
+
+- intent: describe_meal
+  examples: |
+    - We are eating [vegetables](meal)
+    - We are eating [lamb](meal)
+    - We are eating [white meat](meal)
+    - We are eating [fish](meal)
+    - We are eating [rich fish](meal)
+    - We are eating [starches](meal)
+    - We are eating [sweets](meal)
+    - We are eating [vegetables](meal)
+    - I will eat [red meat](meal)
+    - I will eat [white meat](meal)
+    - I will eat [fish](meal)
+    - I will eat [rich fish](meal)
+    - I will eat [starches](meal)
+    - I will eat [sweets](meal)
+    - I am having [meat](meal)
+    - I am having [beef](meal)
+    - I am gonna have [roasted vegetables](meal)
+    - [Fish](meal)
+    - [potatoes](meal)
+    - [beef](meal)
+
+- intent: describe_wine_country
+  examples: |
+    - I want a wine in [Germany](country)
+    - I want a wine in [China](country)
+    - I want a wine in [Albania](country)
+    - I want a wine in [Denmark](country)
+    - I want a wine in [Korea](country)
+    - [South Africa](country)
+    - What if a wine in [France](country)
+    - What if a wine in [Germany](country)
+    - What if a wine in [Argentina](country)
+    - I would like a [Chilean](country) wine
+    - I would like a [Germen](country) wine
+    - I would like a [Spanish](country) wine
+    - I would like an [Italian](country) wine
+    - a [Portuguese](country) wine
+    - a [South African](country) wine
+    - a [American](country) wine
+    - a [Austrian](country) wine
+    - [Argentina](country) wine
+    - [Australia](country) wine
+    - [Austria](country) wine
+    - [Chile](country) wine
+    - [France](country) wine
+    - [Germany](country) wine
+    - [Italy](country) wine
+    - [Portugal](country) wine
+    - [South Africa](country) wine
+    - [Spain](country) wine
+    - [America](country) wine
+
+- intent: ask_on_offer
+  examples: |
+    - I will go for those on offer
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- synonym: hard cheese
+  examples: |
+    - Asiago
+    - Gruyere
+    - Parmigiano-Reggiano
+    - Manchego
+    - pecorino romano
+    - gorgonzola
+    - cotija
+    - emmental
+    - gouda
+
+- synonym: sweets
+  examples: |
+    - dessert
+    - cake
+    - cookie
+    - custard
+    - candy
+    - doughnuts
+    - ice cream
+    - pastry
+    - pie
+    - pudding
+
+- synonym: cured meat
+  examples: |
+    - sausages
+    - bacon
+    - ham
+    - hot dogs or frankfurters
+    - tinned meat
+    - salami
+    - pâtés
+    - beef jerky
+    - chorizo
+    - pepperoni
+    - corned beef
+
+- synonym: red meat
+  examples: |
+    - beef
+    - veal
+    - mutton
+    - lamb
+    - pork
+    - venison
+    - goat
+    - horse
+    - burgers
+    - mince
+
+- synonym: white meat
+  examples: |
+    - chicken
+    - turkey
+    - duck
+    - goose
+    - pheasant
+    - rabbit
+
+- synonym: rich fish
+  examples: |
+    - roe
+    - Caviar
+    - Ikura
+    - Kazunoko
+    - Lumpfish roe
+    - Masago
+    - Shad roe
+    - Tobiko
+    - Shellfish
+    - Crustaceans
+    - Crabs
+    - Craw
+    - Cray Fish
+    - Lobsters
+    - Shrimps
+    - Prawns
+    - Cockle
+    - Cuttlefish
+    - Clam
+    - Loco
+    - Mussel
+    - Octopus
+    - Oyster
+    - Periwinkle
+    - Scallop (see also bay scallop and sea scallop)
+    - Squid
+    - Conch (Snails)
+    - Nautilus
+    - Sea cucumber
+    - Uni
+
+- synonym: fish
+  examples: |
+    - salmon
+    - tuna
+    - rainbow trout
+    - pacific halibut
+    - mackerel
+    - cod
+    - sardines
+    - herring
+    - branzino
+    - tilapia
+    - hake
+    - sea bream
+    - brill
+    - sea bass
+    - yellowtail
+    - trout
+    - pollock
+    - haddock
+    - turbot
+    - basa
+    - red mullet
+    - perch
+    - walleye
+    - catfish
+    - hailbut
+    - amberjack
+    - dover sole
+    - flounder
+
+- synonym: starches
+  examples: |
+    - potatoes
+    - bread
+    - cereal
+    - rice
+    - grains
+    - pasta
+
+- synonym: soft cheese
+  examples: |
+    - feta
+    - Brie
+    - ricotta
+    - cream cheese
+    - Camembert
+    - Chevre
+    - Roquefort
+    - gorgonzola
+    - cottage cheese
+
+- synonym: vegetables
+  examples: |
+    - artichoke
+    - broccoli
+    - caper
+    - cauliflower
+    - squash blossoms
+    - avocado
+    - bell pepper
+    - breadfruit
+    - broad bean
+    - chayote
+    - chickpea
+    - common bean
+    - green bean
+    - corn
+    - cowpea
+    - cucumber
+    - durian
+    - eggplant
+    - gherkin
+    - husk tomato
+    - jackfruit
+    - lentil
+    - lima bean
+    - loofah
+    - lotus
+    - musk cucumber
+    - okra
+    - olive
+    - pea
+    - peanut
+    - pepper
+    - plantain
+    - pumpkin
+    - snake gourd
+    - soybean
+    - squash
+    - tomatillo
+    - tomato
+    - water chestnut
+    - wax gourd
+    - zucchini
+    - amaranth
+    - arugula
+    - asparagus
+    - bamboo
+    - beet
+    - bok choy
+    - borage
+    - Brussels sprouts
+    - burdock
+    - cabbage
+    - cardoon
+    - celery
+    - chard
+    - chicory
+    - chive
+    - collard
+    - endive
+    - fennel
+    - grape leaves
+    - Indian fig
+    - kale
+    - kohlrabi
+    - lamb’s lettuce
+    - lamb’s quarters
+    - leek
+    - lemongrass
+    - lettuce
+    - lotus
+    - moringa
+    - mustard
+    - Napa cabbage
+    - sorrel
+    - spinach
+    - stinging nettle
+    - Tossa jute
+    - watercress
+    - beet
+    - carrot
+    - cassava
+    - celeriac
+    - Chinese water chestnut
+    - garlic
+    - ginger
+    - horseradish
+    - Jerusalem artichoke
+    - jícama
+    - lotus
+    - onion
+    - potato
+    - sweet potato
+    - parsnip
+    - radish
+    - rutabaga
+    - salsify
+    - shallot
+    - taro
+    - ti
+    - turnip
+    - yam
+
+- lookup: country
+  examples: |
+    - Afghanistan
+    - Albania
+    - Algeria
+    - Andorra
+    - Angola
+    - Antigua and Barbuda
+    - Argentina
+    - Armenia
+    - Australia
+    - Austria
+    - Azerbaijan
+    - America
+    - The Bahamas
+    - Bahrain
+    - Bangladesh
+    - Barbados
+    - Belarus
+    - Belgium
+    - Belize
+    - Benin
+    - Bhutan
+    - Bolivia
+    - Bosnia and Herzegovina
+    - Botswana
+    - Brazil
+    - Brunei
+    - Bulgaria
+    - Burkina Faso
+    - Burundi
+    - Cabo Verde
+    - Cambodia
+    - Cameroon
+    - Canada
+    - Central African Republic
+    - Chad
+    - Chile
+    - China
+    - Colombia
+    - Comoros
+    - Congo, Democratic Republic of the
+    - Congo, Republic of the
+    - Costa Rica
+    - Côte d’Ivoire
+    - Croatia
+    - Cuba
+    - Cyprus
+    - Czech Republic
+    - Denmark
+    - Djibouti
+    - Dominica
+    - Dominican Republic
+    - East Timor (Timor-Leste)
+    - Ecuador
+    - Egypt
+    - El Salvador
+    - Equatorial Guinea
+    - Eritrea
+    - Estonia
+    - Eswatini
+    - Ethiopia
+    - Fiji
+    - Finland
+    - France
+    - Gabon
+    - The Gambia
+    - Georgia
+    - Germany
+    - Ghana
+    - Greece
+    - Grenada
+    - Guatemala
+    - Guinea
+    - Guinea-Bissau
+    - Guyana
+    - Haiti
+    - Honduras
+    - Hungary
+    - Iceland
+    - India
+    - Indonesia
+    - Iran
+    - Iraq
+    - Ireland
+    - Israel
+    - Italy
+    - Jamaica
+    - Japan
+    - Jordan
+    - Kazakhstan
+    - Kenya
+    - Kiribati
+    - Korea, North
+    - Korea, South
+    - Kosovo
+    - Kuwait
+    - Kyrgyzstan
+    - Laos
+    - Latvia
+    - Lebanon
+    - Lesotho
+    - Liberia
+    - Libya
+    - Liechtenstein
+    - Lithuania
+    - Luxembourg
+    - Madagascar
+    - Malawi
+    - Malaysia
+    - Maldives
+    - Mali
+    - Malta
+    - Marshall Islands
+    - Mauritania
+    - Mauritius
+    - Mexico
+    - Micronesia, Federated States of
+    - Moldova
+    - Monaco
+    - Mongolia
+    - Montenegro
+    - Morocco
+    - Mozambique
+    - Myanmar (Burma)
+    - Namibia
+    - Nauru
+    - Nepal
+    - Netherlands
+    - New Zealand
+    - Nicaragua
+    - Niger
+    - Nigeria
+    - North Macedonia
+    - Norway
+    - Oman
+    - Pakistan
+    - Palau
+    - Panama
+    - Papua New Guinea
+    - Paraguay
+    - Peru
+    - Philippines
+    - Poland
+    - Portugal
+    - Qatar
+    - Romania
+    - Russia
+    - Rwanda
+    - Saint Kitts and Nevis
+    - Saint Lucia
+    - Saint Vincent and the Grenadines
+    - Samoa
+    - San Marino
+    - Sao Tome and Principe
+    - Saudi Arabia
+    - Senegal
+    - Serbia
+    - Seychelles
+    - Sierra Leone
+    - Singapore
+    - Slovakia
+    - Slovenia
+    - Solomon Islands
+    - Somalia
+    - South Africa
+    - Spain
+    - Sri Lanka
+    - Sudan
+    - Sudan, South
+    - Suriname
+    - Sweden
+    - Switzerland
+    - Syria
+    - Taiwan
+    - Tajikistan
+    - Tanzania
+    - Thailand
+    - Togo
+    - Tonga
+    - Trinidad and Tobago
+    - Tunisia
+    - Turkey
+    - Turkmenistan
+    - Tuvalu
+    - Uganda
+    - Ukraine
+    - United Arab Emirates
+    - United Kingdom
+    - United States
+    - Uruguay
+    - Uzbekistan
+    - Vanuatu
+    - Vatican City
+    - Venezuela
+    - Vietnam
+    - Yemen
+    - Zambia
+    - Zimbabwe
+
+- synonym: France
+  examples: |
+    - French
+
+- synonym: Argentina
+  examples: |
+    - Argentinian
+
+- synonym: Australia
+  examples: |
+    - Australian
+
+- synonym: Austria
+  examples: |
+    - Austrian
+
+- synonym: Chile
+  examples: |
+    - Chilean
+
+- synonym: Germany
+  examples: |
+    - German
+
+- synonym: Italy
+  examples: |
+    - Italian
+
+- synonym: Portugal
+  examples: |
+    - Portuguese
+  
+- synonym: South Africa
+  examples: |
+    - South African
+
+- synonym: Spain
+  examples: |
+    - Spanish
+
+- synonym: America
+  examples: |
+    - American

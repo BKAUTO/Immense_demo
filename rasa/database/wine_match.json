@@ -1,0 +1,70 @@
+[{
+    "meal":"vegetables",
+    "matched_wine":["Dry white",
+                    "Sparkling"]
+},
+{
+    "meal":"roasted vegetables",
+    "matched_wine":["Dry white",
+                    "Light red",
+                    "Medium red"]
+},
+{
+    "meal":"soft cheese",
+    "matched_wine":["Sweet white",
+                    "Rich white",
+                    "Sparkling",
+                    "Dessert"]
+
+},
+{
+    "meal":"hard cheese",
+    "matched_wine":["Sweet white",
+                    "Medium red",
+                    "Sparkling",
+                    "Bold red"]
+},
+{
+    "meal":"starches",
+    "matched_wine":["Dry white",
+                    "Rich white",
+                    "Medium red",
+                    "Light red",
+                    "Bold red",
+                    "Sparkling",
+                    "Dessert"]
+},
+{
+    "meal":"fish",
+    "matched_wine":["Dry white",
+                    "Rich white",
+                    "Sparkling"]
+},
+{
+    "meal":"rich fish",
+    "matched_wine":["Rich white",
+                    "Light red"]
+},
+{
+    "meal":"white meat",
+    "matched_wine":["Rich white",
+                    "Medium red",
+                    "Light red"]
+},
+{
+    "meal":"red meat",
+    "matched_wine":["Medium red"]
+},
+{
+    "meal":"cured meat",
+    "matched_wine":["Sweet white",
+                    "Medium red",
+                    "Light red",
+                    "Bold red",
+                    "Dessert"]
+},
+{
+    "meal":"sweets",
+    "matched_wine":["Sweet white",
+                    "Dessert"]
+}]

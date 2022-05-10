@@ -7,3 +7,72 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Say nothanks anytime the user says compliment
+  steps:
+  - intent: compliment
+  - action: utter_compliment
+
+- rule: Say hi anytime the user says hi
+  steps:
+  - intent: greet
+  - action: utter_greet  
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Pitch_step 1
+  steps:
+  - intent: ask_for_recommendation
+  - action: utter_ask_for_recommendation
+
+- rule: Pitch_step 2
+  steps:
+  - intent: describe_meal
+  - action: match_with_meal
+
+- rule: Pitch_step 3
+  steps:
+  - intent: ask_on_offer
+  - action: go_on_offer
+
+
+- rule: Pitch_step 4
+  steps:
+  - intent: describe_wine_country
+  - action: match_with_country
+# - rule: Activate form
+#   steps:
+#   - intent: ask_for_recommendation
+#   - action: meal_form
+#   - active_loop: meal_form
+
+# - rule: Submit form
+#   condition:
+#   - active_loop: meal_form
+#   steps:
+#   # Form is deactivated
+#   - action: meal_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: utter_finish_form
+
+# - rule: Handle_form_interuption
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: meal_form
+#   steps:
+#   # This unhappy path handles the case of an intent `chitchat`.
+#   - intent: chitchat
+#   - action: utter_chitchat
+#   # Return to form after handling the `chitchat` intent
+#   - action: meal_form
+#   - active_loop: meal_form

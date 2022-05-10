@@ -1,21 +1,32 @@
 version: "3.0"
 
 stories:
-
-- story: talk_museum
+- story: wine_recommendation_on_offer
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: overview
-  - action: utter_overview
-  - intent: choose_exhibition
-  - action: utter_choose_exhibition
-  - intent: opening_hour
-  - action: utter_opening_hour
-  - intent: repeat
-  - action: utter_repeat
+  - intent: ask_for_recommendation
+  - action: utter_ask_for_recommendation
+  - intent: describe_meal
+  - action: match_with_meal
+  - intent: ask_on_offer
+  - action: go_on_offer
+  - intent: describe_wine_country
+  - action: match_with_country
   - intent: compliment
   - action: utter_compliment
-  - intent: goodbye
-  - action: utter_goodbye
 
+- story: wine_recommendation_on_offer_affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_for_recommendation
+  - action: utter_ask_for_recommendation
+  - intent: describe_meal
+  - action: match_with_meal
+  - intent: affirm
+  - action: go_on_offer
+  - intent: describe_wine_country
+  - action: match_with_country
+  - intent: compliment
+  - action: utter_compliment

@@ -1,8 +1,8 @@
-import http from "./http-util";
+import rasaApi from "./rasa-util";
 
 class RasaServices {
     getRasaReponse(request) {
-        return http.post("/webhooks/rest/webhook", request);
+        return rasaApi.post("/webhooks/rest/webhook", request);
     }
 }
 

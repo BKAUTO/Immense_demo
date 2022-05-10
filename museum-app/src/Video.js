@@ -9,8 +9,8 @@ class Video extends Component {
             <ReactPlayer
                 className='react-player fixed-bottom'
                 url= {this.props.url}
-                width = '60%'
-                height = '60%'
+                width = '100%'
+                height = '100%'
                 loop = {false}
                 playing = {true}
                 controls = {false}

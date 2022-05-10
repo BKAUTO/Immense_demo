@@ -1,0 +1,186 @@
+[{
+    "name":"Sauvignon Blanc",
+    "type":"Dry white"
+},
+{
+    "name":"Grüner Veltliner",
+    "type":"Dry white"
+},
+{
+    "name":"Pinot Grigio",
+    "type":"Dry white"
+},
+{
+    "name":"Albariño",
+    "type":"Dry white"
+},
+{
+    "name":"Gewürztraminer",
+    "type":"Sweet white"
+},
+{
+    "name":"Müller-Thurgau",
+    "type":"Sweet white"
+},
+{
+    "name":"Malvasia",
+    "type":"Sweet white"
+},
+{
+    "name":"Moscalo",
+    "type":"Sweet white"
+},
+{
+    "name":"Riesling",
+    "type":"Sweet white"
+},
+{
+    "name":"Chardonnay",
+    "type":"Rich white"
+},
+{
+    "name":"Roussanne",
+    "type":"Rich white"
+},
+{
+    "name":"Marsanne",
+    "type":"Rich white"
+},
+{
+    "name":"Viognier",
+    "type":"Rich white"
+},
+{
+    "name":"Sparkling wine",
+    "type":"Sparkling"
+},
+{
+    "name":"Champagne",
+    "type":"Sparkling"
+},
+{
+    "name":"Prosecco",
+    "type":"Sparkling"
+},
+{
+    "name":"Cava",
+    "type":"Sparkling"
+},
+{
+    "name":"St. Laurent",
+    "type":"Light red"
+},
+{
+    "name":"Pinot Noir",
+    "type":"Light red"
+},
+{
+    "name":"Zweigelt",
+    "type":"Light red"
+},
+{
+    "name":"Gamay",
+    "type":"Light red"
+},
+{
+    "name":"Syrah 2017",
+    "type":"Medium red",
+    "origin":"Argentina",
+    "condition":"sold out"
+},
+{
+    "name":"Barossa Ink Shiraz",
+    "type":"Medium red",
+    "origin":"Australia",
+    "condition":"sold out"
+},
+{
+    "name":"Heideboden Rot 2017",
+    "type":"Medium red",
+    "origin":"Austria",
+    "condition":"sold out"
+},
+{
+    "name":"Corralillo Syrah 2016",
+    "type":"Medium red",
+    "origin":"Chile",
+    "condition":"sold out"
+},
+{
+    "name":"Saint-Émilion Grand Cru",
+    "type":"Medium red",
+    "origin":"France",
+    "condition":"on offer"
+},
+{
+    "name":"Schlatter Maltesergarten Spätburgunder 2018",
+    "type":"Medium red",
+    "origin":"Germany",
+    "condition":"sold out"
+},
+{
+    "name":"Merlot (Querce Gobbe)",
+    "type":"Medium red",
+    "origin":"Italy",
+    "condition":"sold out"
+},
+{
+    "name":"Rocksand Shiraz",
+    "type":"Medium red",
+    "origin":"Portugal",
+    "condition":"sold out"
+},
+{
+    "name":"Shiraz-Merlot 2019",
+    "type":"Medium red",
+    "origin":"South Africa",
+    "condition":"sold out"
+},
+{
+    "name":"Taberner Tierra de Cádiz",
+    "type":"Medium red",
+    "origin":"Spain",
+    "condition":"sold out"
+},
+{
+    "name":"Old Vine Zinfandel Lodi",
+    "type":"Medium red",
+    "origin":["United States","America","USA"],
+    "condition":"sold out"
+},
+{
+    "name":"Cabernet Sauvlgnon",
+    "type":"Bold red"
+},
+{
+    "name":"Monastrell",
+    "type":"Bold red"
+},
+{
+    "name":"Aglianico",
+    "type":"Bold red"
+},
+{
+    "name":"Malbec",
+    "type":"Bold red"
+},
+{
+    "name":"Syrah",
+    "type":"Bold red"
+},
+{
+    "name":"Late Harvest",
+    "type":"Dessert"
+},
+{
+    "name":"Ice Wine",
+    "type":"Dessert"
+},
+{
+    "name":"Sherry",
+    "type":"Dessert"
+},
+{
+    "name":"Port",
+    "type":"Dessert"
+}]
