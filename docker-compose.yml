@@ -1,29 +1,26 @@
 version: '3.7'
 
-networks:
-  rasa:
-
 services:
   speech-api:
-    image: speech-api
+    build:
+      context: ./realtime-transcription-browser-js-example
+      dockerfile: Dockerfile
     ports:
       - '8000:8000'
 
   action-service:
-    image: rasa-action
     container_name: action-server
+    build:
+      context: ./rasa
+      dockerfile: Dockerfile
     volumes:
      - ./rasa/actions:/app/actions
-    networks:
-      - rasa
 
   rasa:
     image: rasa/rasa:3.0.6-full
     volumes:
       - './rasa:/app'
       - ./rasa/models:/app/models
-    networks:
-      - rasa
     ports:
       - '5005:5005'
     command: run --enable-api --cors "*"
