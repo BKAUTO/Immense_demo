@@ -5,3 +5,4 @@
 3. ``docker compose build``
 4. ``docker compose up``
 5. Wait enough time for the rasa to load the model (you can tell from the log)
+6. ``localhost:1337``
